@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Death Stranding | Balenciaga Interactive Archive</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" aria-label="Main navigation">
+      <a class="brand-mark" href="#hero" aria-label="Back to top">BB</a>
+      <nav class="desktop-nav">
+        <a href="#show">The Show</a>
+        <a href="#experience">Experience</a>
+        <a href="#collection">Collection</a>
+        <a href="#film">Film</a>
+        <a href="#archive">Archive</a>
+      </nav>
+      <button class="icon-btn" id="soundToggle" type="button" aria-label="Toggle ambience">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <canvas class="slice hero-canvas" data-slice="hero" role="button" tabindex="0" aria-label="Open hero image"></canvas>
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <p class="kicker">Runway Show · Spring 2025</p>
+          <h1>Death<br />Stranding<br />Balenciaga</h1>
+          <p class="date">May 31, 2025 · 20:00 CET</p>
+          <button class="outline-btn" data-open-slice="hero" type="button">Enter the show <b>+</b></button>
+        </div>
+        <a class="scroll-cue" href="#show" aria-label="Scroll to show">
+          <span>Scroll</span>
+          <i></i>
+        </a>
+      </section>
+
+      <section class="split-stage" id="show" aria-label="Editorial image slices">
+        <span class="anchor-target" id="experience" aria-hidden="true"></span>
+        <article class="feature-panel portrait-panel reveal">
+          <canvas class="slice" data-slice="portrait" role="button" tabindex="0" aria-label="Open collection portrait"></canvas>
+          <div>
+            <span>01</span>
+            <h2>A collection beyond connection</h2>
+          </div>
+        </article>
+        <article class="feature-panel text-panel reveal">
+          <p>Featuring</p>
+          <h2>Björk<br />Arca<br />Frank Ocean<br />Shygirl</h2>
+          <button class="outline-btn" data-open-slice="sound" type="button">Explore the sound <b>+</b></button>
+        </article>
+        <article class="feature-panel center-panel reveal">
+          <canvas class="slice" data-slice="centerModel" role="button" tabindex="0" aria-label="Open runway model image"></canvas>
+        </article>
+        <article class="feature-panel product-panel reveal">
+          <canvas class="slice" data-slice="bag" role="button" tabindex="0" aria-label="Open bag image"></canvas>
+          <a class="outline-btn" href="#film">View the film <b>+</b></a>
+        </article>
+      </section>
+
+      <section class="collection" id="collection">
+        <div class="section-head">
+          <h2>The Collection</h2>
+          <button class="ghost-btn" data-open-slice="collectionStrip" type="button">View all</button>
+        </div>
+        <div class="runway-wrap">
+          <button class="arrow left" id="prevLook" type="button" aria-label="Previous look">‹</button>
+          <div class="runway" id="runway" aria-label="Scrollable runway looks"></div>
+          <button class="arrow right" id="nextLook" type="button" aria-label="Next look">›</button>
+        </div>
+      </section>
+
+      <section class="film" id="film">
+        <div class="film-copy reveal">
+          <p class="kicker">Experience</p>
+          <h2>The Film</h2>
+          <span>Remote terrain, engineered silhouettes, and a runway built as a transmission.</span>
+        </div>
+        <div class="film-player reveal">
+          <video id="deathFilm" preload="metadata" poster="cleaned-html-assets/01-hero-landscape.jpg" playsinline>
+            <source src="assets/death.mp4" type="video/mp4" />
+          </video>
+          <button class="film-play" id="filmPlay" type="button" aria-label="Play film">
+            <span>Play</span>
+            <b></b>
+          </button>
+          <div class="film-controls" aria-label="Film controls">
+            <button type="button" id="filmMute">Mute</button>
+            <progress id="filmProgress" max="100" value="0">0%</progress>
+            <button type="button" id="filmFullscreen">Fullscreen</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="archive" id="archive">
+        <div class="archive-copy">
+          <p>Death Stranding | Balenciaga</p>
+          <span>Two worlds collide. Connecting realms, connecting people. This is more than a collection. This is a journey.</span>
+        </div>
+        <button class="logo-slice" data-open-slice="collectionStrip" type="button" aria-label="Open image archive">
+          <span>Death<br />Stranding</span>
+          <b>BB</b>
+        </button>
+        <form class="signup">
+          <label for="email">Stay connected</label>
+          <div>
+            <input id="email" type="email" placeholder="Email address" autocomplete="email" />
+            <button type="submit" aria-label="Submit email">→</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <aside class="progress" aria-label="Section progress">
+      <a href="#hero" class="active">01</a>
+      <a href="#show">02</a>
+      <a href="#collection">03</a>
+      <a href="#film">04</a>
+      <a href="#archive">05</a>
+    </aside>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
+      <div class="lightbox-top">
+        <p id="lightboxTitle">Image</p>
+        <div>
+          <button type="button" id="zoomOut" aria-label="Zoom out">−</button>
+          <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+          <button type="button" id="closeLightbox" aria-label="Close">×</button>
+        </div>
+      </div>
+      <div class="lightbox-stage" id="lightboxStage">
+        <img id="lightboxImage" alt="" draggable="false" />
+      </div>
+      <p class="hint">Drag to pan · Double click to reset</p>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
